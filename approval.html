@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        document.addEventListener("click", (e)=>{
+            if(e["srcElement"].parentNode.tagName == "DIV"){
+                let pID = e["srcElement"].parentNode.id
+                let link = "/categories/approval/"+pID
+                console.log(link)
+                fetch(link,{
+                    method:"GET"
+                }).then(response => response.text())
+                .then(data =>{
+                   if(data.includes("approved!")){
+                       document.getElementById(pID).parentNode.remove()
+                    
+                   }
+                })
+            }
+                
+        })
+    </script>
+    <style>
+        div {
+            cursor: pointer;
+            background: rgb(241, 119, 119)
+        }
+    </style>
+
+</head>
+<body>
+    
+    <ol id="cats">
+        <div id = "5db57e99">
+            
+            <ul>
+                5db57e99
+            </ul>
+            
+            <ul>
+                Marc
+            </ul>
+            
+            <ul>
+                2021-01-19 01:35:38.189211
+            </ul>
+            
+            <ul>
+                5db57e99.png
+            </ul>
+            
+            <ul>
+                TEST CATEGORY PENDING
+            </ul>
+            
+            <ul>
+                PENDING PAGE
+            </ul>
+            
+            <ul>
+                PENDING PAGE 2
+            </ul>
+            
+        </div>
+    </ol>   
+    
+</body>
+</html>
